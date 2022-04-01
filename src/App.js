@@ -18,9 +18,16 @@ function App(props) {
           }
         />
         <Route
-          path="dialogs"
-          element={<Dialogs state={props.state.dialogsPage} />}
-        />
+          path="dialogs/*"
+          element={
+            <Dialogs
+              state={props.state.dialogsPage}
+              dispatch={props.dispatch}
+            />
+          }
+        >
+          <Route path=":id" element={<p>message</p>} />
+        </Route>
       </Route>
     </Routes>
   );
