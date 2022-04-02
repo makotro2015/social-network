@@ -8,22 +8,8 @@ function App(props) {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route
-          index
-          element={
-            <Profile
-              store={props.store}
-            />
-          }
-        />
-        <Route
-          path="dialogs/*"
-          element={
-            <DialogsContainer
-              store={props.store}
-            />
-          }
-        >
+        <Route index element={<Profile />} />
+        <Route path="dialogs/*" element={<DialogsContainer />}>
           <Route path=":id" element={<p>message</p>} />
         </Route>
       </Route>

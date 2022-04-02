@@ -7,7 +7,7 @@ function Profile(props) {
     <div className={s.content}>
       <div className={s.img}></div>
       <div>ava + descriptions</div>
-      <MyPostsContainer store={props.store} />
+      <MyPostsContainer />
     </div>
   );
 }
