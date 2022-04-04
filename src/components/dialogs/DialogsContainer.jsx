@@ -2,7 +2,7 @@ import React from "react";
 import {
   updateNewMessageBodyActionCreator,
   sendMessageActionCreator,
-} from "./../../redux/dialogs.reducer.js";
+} from "./../../redux/dialogs-reducer.js";
 import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
 

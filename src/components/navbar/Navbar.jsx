@@ -12,6 +12,9 @@ function Navbar() {
         <NavLink to="dialogs">Диалоги</NavLink>
       </div>
       <div className="item">
+        <NavLink to="users">Пользователи</NavLink>
+      </div>
+      <div className="item">
         <a>Новости</a>
       </div>
       <div className="item">

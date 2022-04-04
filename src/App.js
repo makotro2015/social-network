@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import DialogsContainer from "./components/dialogs/DialogsContainer";
 import Profile from "./components/profile/Profile.jsx";
 import Layout from "./Layout.jsx";
+import UsersContainer from './components/users/UsersContainer'
 
 function App(props) {
   return (
@@ -12,6 +13,7 @@ function App(props) {
         <Route path="dialogs/*" element={<DialogsContainer />}>
           <Route path=":id" element={<p>message</p>} />
         </Route>
+        <Route path="users/" element={<UsersContainer />} />
       </Route>
     </Routes>
   );
