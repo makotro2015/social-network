@@ -12,12 +12,12 @@ function Dialogs(props) {
   ));
 
   const onSendMessageClick = () => {
-    props.sendMessageActionCreator();
+    props.sendMessage();
   };
 
   const onNewMessageChange = (e) => {
     const body = e.target.value;
-    props.updateNewMessageBodyActionCreator(body);
+    props.updateNewMessageBody(body);
   };
 
   return (

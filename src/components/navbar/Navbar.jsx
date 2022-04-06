@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="nav">
       <div className="item">
-        <NavLink to="">Профиль</NavLink>
+        <NavLink to="profile">Профиль</NavLink>
       </div>
       <div className="item">
         <NavLink to="dialogs">Диалоги</NavLink>

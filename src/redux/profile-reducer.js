@@ -1,5 +1,7 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const ADD_POST = "ADD_POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
+const SET_USER_PROFILE = "SET_USER_PROFILE";
+const SET_CURRENT_USER_ID = "SET_CURRENT_USER_ID";
 
 let initialState = {
   posts: [
@@ -9,6 +11,8 @@ let initialState = {
     { id: 4, message: "family", likeCount: 1 },
   ],
   newPostText: "",
+  profile: "",
+  currentUserId: 2,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -31,15 +35,34 @@ const profileReducer = (state = initialState, action) => {
         newPostText: action.newText,
       };
 
+    case SET_USER_PROFILE:
+      return {
+        ...state,
+        profile: action.profile,
+      };
+    case SET_CURRENT_USER_ID:
+      return {
+        ...state,
+        currentUserId: action.currentUserId,
+      };
+
     default:
       return state;
   }
 };
 
-export const addPostActionCreator = () => ({ type: "ADD-POST" });
-export const updateNewPostTextActionCreator = (text) => ({
-  type: "UPDATE-NEW-POST-TEXT",
+export const addPost = () => ({ type: "ADD_POST" });
+export const updateNewPostText = (text) => ({
+  type: "UPDATE_NEW_POST_TEXT",
   newText: text,
+});
+export const setUserProfile = (profile) => ({
+  type: "SET_USER_PROFILE",
+  profile,
+});
+export const setCurrentUserId = (currentUserId) => ({
+  type: "SET_CURRENT_USER_ID",
+  currentUserId,
 });
 
 export default profileReducer;
