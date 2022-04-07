@@ -2,10 +2,8 @@ import React from "react";
 import userPhoto from "./../../assets/images/user.png";
 import s from "./Users.module.scss";
 import { NavLink } from "react-router-dom";
-import { useParams } from "react-router-dom";
 
 function Users(props) {
-  console.log(useParams());
   let pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
   let pages = [];
   for (let i = 1; i <= pageCount; i++) {

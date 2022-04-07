@@ -11,6 +11,7 @@ import Users from "./Users";
 import { connect } from "react-redux";
 import * as axios from "axios";
 import Preloader from "./../common/preloader/Preloader";
+
 class UsersAPI extends React.Component {
   componentDidMount() {
     this.props.setIsFetching(true);
@@ -47,17 +48,20 @@ class UsersAPI extends React.Component {
 
     return (
       <>
-        {this.props.isFetching ? <Preloader /> : null}
-        <Users
-          pageSize={this.props.pageSize}
-          totalUsersCount={this.props.totalUsersCount}
-          changeCurrentPage={this.changeCurrentPage}
-          currentPage={this.props.currentPage}
-          users={this.props.users}
-          follow={this.props.follow}
-          unfollow={this.props.unfollow}
-          isFetching={this.props.isFetching}
-        />
+        {this.props.isFetching ? (
+          <Preloader />
+        ) : (
+          <Users
+            pageSize={this.props.pageSize}
+            totalUsersCount={this.props.totalUsersCount}
+            changeCurrentPage={this.changeCurrentPage}
+            currentPage={this.props.currentPage}
+            users={this.props.users}
+            follow={this.props.follow}
+            unfollow={this.props.unfollow}
+            isFetching={this.props.isFetching}
+          />
+        )}
       </>
     );
   }
@@ -73,7 +77,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-const UsersContainer = connect(mapStateToProps, 
-  {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, setIsFetching })(UsersAPI);
+const UsersContainer = connect(mapStateToProps, {
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setTotalUsersCount,
+  setIsFetching,
+})(UsersAPI);
 
 export default UsersContainer;

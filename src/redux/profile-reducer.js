@@ -2,6 +2,7 @@ const ADD_POST = "ADD_POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_CURRENT_USER_ID = "SET_CURRENT_USER_ID";
+const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 
 let initialState = {
   posts: [
@@ -12,7 +13,8 @@ let initialState = {
   ],
   newPostText: "",
   profile: "",
-  currentUserId: 2,
+  userId: 2,
+  isFetching: false,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -43,7 +45,13 @@ const profileReducer = (state = initialState, action) => {
     case SET_CURRENT_USER_ID:
       return {
         ...state,
-        currentUserId: action.currentUserId,
+        userId: action.currentUserId,
+      };
+
+    case TOGGLE_IS_FETCHING:
+      return {
+        ...state,
+        isFetching: action.isFetching,
       };
 
     default:
@@ -63,6 +71,10 @@ export const setUserProfile = (profile) => ({
 export const setCurrentUserId = (currentUserId) => ({
   type: "SET_CURRENT_USER_ID",
   currentUserId,
+});
+export const setIsFetching = (isFetching) => ({
+  type: "TOGGLE_IS_FETCHING",
+  isFetching,
 });
 
 export default profileReducer;
