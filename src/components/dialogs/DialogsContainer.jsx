@@ -1,4 +1,3 @@
-import React from "react";
 import {
   updateNewMessageBody,
   sendMessage,
@@ -14,6 +13,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const DialogsContainer = connect(mapStateToProps, { updateNewMessageBody, sendMessage })(Dialogs);
+const DialogsContainer = connect(mapStateToProps, {
+  updateNewMessageBody,
+  sendMessage,
+})(Dialogs);
 
 export default DialogsContainer;

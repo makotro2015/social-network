@@ -14,7 +14,7 @@ function Navbar() {
       <div className="item">
         <NavLink to="users">Пользователи</NavLink>
       </div>
-      <div className="item">
+      {/* <div className="item">
         <a>Новости</a>
       </div>
       <div className="item">
@@ -22,7 +22,7 @@ function Navbar() {
       </div>
       <div className="item">
         <a>Настройки</a>
-      </div>
+      </div> */}
     </nav>
   );
 }
