@@ -9,7 +9,7 @@ function App(props) {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="profile/*" element={<ProfileContainer />}>
+        <Route path="profile/" element={<ProfileContainer />}>
           <Route path=":userId" element={<ProfileContainer />} />
         </Route>
         <Route path="dialogs/*" element={<DialogsContainer />}>

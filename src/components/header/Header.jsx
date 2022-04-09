@@ -3,17 +3,12 @@ import s from "./Header.module.scss";
 import { NavLink } from "react-router-dom";
 
 function Header(props) {
-  debugger;
   return (
     <header className={s.header}>
       {" "}
       header
       <div>
-        {props.isAuth ? (
-          props.login
-        ) : (
-          <NavLink to="login"> {props.login} </NavLink>
-        )}
+        {props.isAuth ? props.login : <NavLink to="login"> Login </NavLink>}
       </div>
     </header>
   );
