@@ -2,7 +2,6 @@ import React from "react";
 import userPhoto from "./../../assets/images/user.png";
 import s from "./Users.module.scss";
 import { NavLink } from "react-router-dom";
-import * as axios from "axios";
 import { usersAPI } from "../../api/api.js";
 
 function Users(props) {
@@ -40,31 +39,33 @@ function Users(props) {
               <button
                 disabled={props.followingInProgress.some((id) => id === u.id)}
                 onClick={() => {
-                  props.setIsFollowingProgress(true, u.id);
-                  usersAPI.unfollow(u.id).then((data) => {
-                    if (data.resultCode === 0) {
-                      props.unfollow(u.id);
-                    }
-                    props.setIsFollowingProgress(false, u.id);
-                  });
+                  props.unfollow(u.id);
+                  // props.setIsFollowingProgress(true, u.id);
+                  // usersAPI.unfollow(u.id).then((data) => {
+                  //   if (data.resultCode === 0) {
+                  //     props.unfollow(u.id);
+                  //   }
+                  //   props.setIsFollowingProgress(false, u.id);
+                  // });
                 }}
               >
-                Follow
+                Unfollow
               </button>
             ) : (
               <button
                 disabled={props.followingInProgress.some((id) => id === u.id)}
                 onClick={() => {
-                  props.setIsFollowingProgress(true, u.id);
-                  usersAPI.follow(u.id).then((data) => {
-                    if (data.resultCode === 0) {
-                      props.follow(u.id);
-                    }
-                    props.setIsFollowingProgress(false, u.id);
-                  });
+                  props.follow(u.id);
+                  // props.setIsFollowingProgress(true, u.id);
+                  // usersAPI.follow(u.id).then((data) => {
+                  //   if (data.resultCode === 0) {
+                  //     props.follow(u.id);
+                  //   }
+                  //   props.setIsFollowingProgress(false, u.id);
+                  // });
                 }}
               >
-                Unfollow
+                Follow
               </button>
             )}
           </div>

@@ -2,38 +2,25 @@ import React from "react";
 import {
   follow,
   unfollow,
-  setUsers,
   setCurrentPage,
-  setTotalUsersCount,
-  setIsFetching,
   setIsFollowingProgress,
+  getUsersThunkCreator,
 } from "./../../redux/users-reducer.js";
 import Users from "./Users";
 import { connect } from "react-redux";
 import Preloader from "./../common/preloader/Preloader";
-import { usersAPI } from "../../api/api.js";
 
 class UsersAPI extends React.Component {
   componentDidMount() {
-    this.props.setIsFetching(true);
-    usersAPI
-      .getUsers(this.props.pageSize, this.props.currentPage)
-      .then((data) => {
-        this.props.setIsFetching(false);
-        this.props.setUsers(data.items);
-        this.props.setTotalUsersCount(data.totalCount);
-      });
+    this.props.getUsersThunkCreator(
+      this.props.pageSize,
+      this.props.currentPage
+    );
   }
 
   changeCurrentPage = (currentPage) => {
-    this.props.setIsFetching(true);
     this.props.setCurrentPage(currentPage);
-    usersAPI
-      .getUsers(this.props.pageSize, this.props.currentPage)
-      .then((data) => {
-        this.props.setIsFetching(false);
-        this.props.setUsers(data.items);
-      });
+    this.props.getUsersThunkCreator(this.props.pageSize, currentPage);
   };
 
   render() {
@@ -56,9 +43,9 @@ class UsersAPI extends React.Component {
             users={this.props.users}
             follow={this.props.follow}
             unfollow={this.props.unfollow}
-            isFetching={this.props.isFetching}
+            // isFetching={this.props.isFetching}
             followingInProgress={this.props.followingInProgress}
-            setIsFollowingProgress={this.props.setIsFollowingProgress}
+            // setIsFollowingProgress={this.props.setIsFollowingProgress}
           />
         )}
       </>
@@ -80,11 +67,9 @@ const mapStateToProps = (state) => {
 const UsersContainer = connect(mapStateToProps, {
   follow,
   unfollow,
-  setUsers,
   setCurrentPage,
-  setTotalUsersCount,
-  setIsFetching,
   setIsFollowingProgress,
+  getUsersThunkCreator,
 })(UsersAPI);
 
 export default UsersContainer;
