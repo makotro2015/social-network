@@ -9,39 +9,29 @@ import {
 } from "./../../redux/users-reducer.js";
 import Users from "./Users";
 import { connect } from "react-redux";
-import * as axios from "axios";
 import Preloader from "./../common/preloader/Preloader";
+import { usersAPI } from "../../api/api.js";
 
 class UsersAPI extends React.Component {
   componentDidMount() {
     this.props.setIsFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`,
-        {
-          withCredentials: true,
-        }
-      )
-      .then((response) => {
+    usersAPI
+      .getUsers(this.props.pageSize, this.props.currentPage)
+      .then((data) => {
         this.props.setIsFetching(false);
-        this.props.setUsers(response.data.items);
-        this.props.setTotalUsersCount(response.data.totalCount);
+        this.props.setUsers(data.items);
+        this.props.setTotalUsersCount(data.totalCount);
       });
   }
 
   changeCurrentPage = (currentPage) => {
     this.props.setIsFetching(true);
     this.props.setCurrentPage(currentPage);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${currentPage}`,
-        {
-          withCredentials: true,
-        }
-      )
-      .then((response) => {
+    usersAPI
+      .getUsers(this.props.pageSize, this.props.currentPage)
+      .then((data) => {
         this.props.setIsFetching(false);
-        this.props.setUsers(response.data.items);
+        this.props.setUsers(data.items);
       });
   };
 
