@@ -11,7 +11,10 @@ function ProfileInfo(props) {
     <div className="profile-content">
       <div className="img"></div>
       <img src={props.profile.photos.small} alt="Фотография пользователя" />
-      <div>ava + descriptions ${props.profile.aboutMe}</div>
+      <div>ava + descriptions ${props.profile.aboutMe}
+      <br/>
+      ${props.profile.fullName}
+      </div>
     </div>
   );
 }
