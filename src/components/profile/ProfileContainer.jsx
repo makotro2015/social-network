@@ -5,7 +5,8 @@ import {
   setCurrentUserId,
   getUserProfileThunkCreator,
 } from "./../../redux/profile-reducer.js";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { withAuthNavigateComponent } from "../../hoc/withAuthNavigate";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
@@ -13,9 +14,6 @@ class ProfileContainer extends React.Component {
   }
 
   render() {
-    if (!this.props.isAuth) {
-      return <Navigate to="/login/" />;
-    }
     return (
       <>
         <Profile {...this.props} profile={this.props.profile} />
@@ -24,20 +22,21 @@ class ProfileContainer extends React.Component {
   }
 }
 
+let AuthNavigateComponent = withAuthNavigateComponent(ProfileContainer);
+
 const WithUseParamsProfileContainer = (props) => {
   let currentUserId = useParams().userId;
   if (!currentUserId) {
     currentUserId = props.userId;
   }
   props.setCurrentUserId(currentUserId);
-  return <ProfileContainer {...props} currentUserId={currentUserId} />;
+  return <AuthNavigateComponent {...props} currentUserId={currentUserId} />;
 };
 
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   userId: state.profilePage.currentUserId,
   isFetching: state.profilePage.isFetching,
-  isAuth: state.auth.isAuth,
 });
 
 export default connect(mapStateToProps, {
