@@ -5,12 +5,11 @@ import ProfileInfo from "./profileInfo/ProfileInfo";
 import { useParams } from "react-router-dom";
 
 function Profile(props) {
-  debugger;
-  const currentUserId = useParams().userId;
-  console.log(currentUserId);
-  if (currentUserId) {
-    props.setCurrentUserId(currentUserId);
+  let currentUserId = useParams().userId;
+  if (!currentUserId) {
+    currentUserId = props.userId;
   }
+  props.setCurrentUserId(currentUserId);
   return (
     <div className={s.content}>
       <ProfileInfo profile={props.profile} />
