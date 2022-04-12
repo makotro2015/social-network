@@ -5,43 +5,33 @@ import {
   setCurrentUserId,
   getUserProfileThunkCreator,
 } from "./../../redux/profile-reducer.js";
-import { Navigate } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    this.props.getUserProfileThunkCreator(this.props.userId);
+    this.props.getUserProfileThunkCreator(this.props.currentUserId);
   }
-
-  changeCurrentUser = (userId) => {
-    // debugger;
-    this.props.getUserProfileThunkCreator(userId);
-    // this.props.setIsFetching(true);
-    // axios
-    //   .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-    //   .then((response) => {
-    //     this.props.setIsFetching(false);
-    //     this.props.setUserProfile(response.data);
-    //     this.props.setCurrentUserId(userId);
-    //   });
-  };
 
   render() {
     if (!this.props.isAuth) {
-      return <Navigate to={"/login/"} />;
+      return <Navigate to="/login/" />;
     }
     return (
       <>
-        <Profile
-          {...this.props}
-          profile={this.props.profile}
-          // setUserProfile={this.props.setUserProfile}
-          changeCurrentUser={this.changeCurrentUser}
-          setCurrentUserId={this.props.setCurrentUserId}
-        />
+        <Profile {...this.props} profile={this.props.profile} />
       </>
     );
   }
 }
+
+const WithUseParamsProfileContainer = (props) => {
+  let currentUserId = useParams().userId;
+  if (!currentUserId) {
+    currentUserId = props.userId;
+  }
+  props.setCurrentUserId(currentUserId);
+  return <ProfileContainer {...props} currentUserId={currentUserId} />;
+};
 
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
@@ -51,7 +41,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
-  // setUserProfile,
   setCurrentUserId,
   getUserProfileThunkCreator,
-})(ProfileContainer);
+})(WithUseParamsProfileContainer);
