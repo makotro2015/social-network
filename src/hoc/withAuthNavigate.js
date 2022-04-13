@@ -18,9 +18,5 @@ export const withAuthNavigateComponent = (Component) => {
     }
   }
 
-  let ConnectedAuthNavigateComponent = connect(mapStateToPropsForNavigate)(
-    NavigateComponent
-  );
-
-  return ConnectedAuthNavigateComponent;
+  return connect(mapStateToPropsForNavigate)(NavigateComponent);
 };

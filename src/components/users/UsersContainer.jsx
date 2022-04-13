@@ -62,12 +62,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-const UsersContainer = connect(mapStateToProps, {
+export default connect(mapStateToProps, {
   follow,
   unfollow,
   setCurrentPage,
   setIsFollowingProgress,
   getUsersThunkCreator,
 })(UsersAPI);
-
-export default UsersContainer;
