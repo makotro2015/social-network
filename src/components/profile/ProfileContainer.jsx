@@ -5,7 +5,6 @@ import {
   setCurrentUserId,
   getUserProfileThunkCreator,
 } from "./../../redux/profile-reducer.js";
-import { withAuthNavigateComponent } from "../../hoc/withAuthNavigate";
 import { withUseParamsComponent } from "../../hoc/withUseParams";
 import { compose } from "redux";
 
@@ -33,6 +32,5 @@ export default compose(
     setCurrentUserId,
     getUserProfileThunkCreator,
   }),
-  withUseParamsComponent,
-  withAuthNavigateComponent
+  withUseParamsComponent
 )(ProfileContainer);

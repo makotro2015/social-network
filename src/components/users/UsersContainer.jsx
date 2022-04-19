@@ -9,6 +9,8 @@ import {
 import Users from "./Users";
 import { connect } from "react-redux";
 import Preloader from "./../common/preloader/Preloader";
+import { compose } from "redux";
+import { withAuthNavigateComponent } from "../../hoc/withAuthNavigate.js";
 
 class UsersAPI extends React.Component {
   componentDidMount() {
@@ -62,10 +64,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {
-  follow,
-  unfollow,
-  setCurrentPage,
-  setIsFollowingProgress,
-  getUsersThunkCreator,
-})(UsersAPI);
+export default compose(
+  connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setCurrentPage,
+    setIsFollowingProgress,
+    getUsersThunkCreator,
+  }),
+  withAuthNavigateComponent
+)(UsersAPI);
