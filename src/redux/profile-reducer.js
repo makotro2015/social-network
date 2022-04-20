@@ -1,9 +1,10 @@
-import { usersAPI } from "./../api/api";
+import { profileAPI } from "./../api/api";
 
 const ADD_POST = "ADD_POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_CURRENT_USER_ID = "SET_CURRENT_USER_ID";
+const SET_STATUS = "SET_STATUS";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 
 let initialState = {
@@ -17,6 +18,7 @@ let initialState = {
   profile: "",
   currentUserId: 2,
   isFetching: false,
+  status: "",
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -56,6 +58,12 @@ const profileReducer = (state = initialState, action) => {
         isFetching: action.isFetching,
       };
 
+    case SET_STATUS:
+      return {
+        ...state,
+        status: action.status,
+      };
+
     default:
       return state;
   }
@@ -78,10 +86,30 @@ export const setIsFetching = (isFetching) => ({
   type: "TOGGLE_IS_FETCHING",
   isFetching,
 });
+export const setStatus = (status) => ({
+  type: "SET_STATUS",
+  status,
+});
 export const getUserProfileThunkCreator = (userId) => {
   return (dispatch) => {
-    usersAPI.getProfile(userId).then((data) => {
+    profileAPI.getProfile(userId).then((data) => {
       dispatch(setUserProfile(data));
+    });
+  };
+};
+export const getStatus = (userId) => {
+  return (dispatch) => {
+    profileAPI.getStatus(userId).then((data) => {
+      dispatch(setStatus(data));
+    });
+  };
+};
+export const updateStatus = (status) => {
+  return (dispatch) => {
+    profileAPI.updateStatus(status).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(setStatus(status));
+      }
     });
   };
 };

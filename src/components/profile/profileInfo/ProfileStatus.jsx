@@ -3,32 +3,40 @@ import React from "react";
 class ProfileStatus extends React.Component {
   state = {
     editMode: false,
+    status: this.props.status,
   };
 
-  activateEditMode() {
+  activateEditMode = () => {
     this.setState({
       editMode: true,
     });
-  }
+  };
 
-  deactivateEditMode() {
+  deactivateEditMode = () => {
     this.setState({
       editMode: false,
     });
-  }
+    this.props.updateStatus(this.state.status);
+  };
+  onStatusChange = (e) => {
+    this.setState({
+      status: e.currentTarget.value,
+    });
+  };
 
   render() {
     return (
       <>
         {this.state.editMode ? (
           <input
-            onBlur={this.deactivateEditMode.bind(this)}
-            value={this.props.status}
+            onBlur={this.deactivateEditMode}
+            onChange={this.onStatusChange}
+            value={this.state.status}
             autoFocus
           />
         ) : (
-          <div onDoubleClick={this.activateEditMode.bind(this)}>
-            {this.props.status}
+          <div onDoubleClick={this.activateEditMode}>
+            {this.props.status || "Статус не добавлен"}
           </div>
         )}
       </>

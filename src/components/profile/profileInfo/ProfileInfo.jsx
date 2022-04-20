@@ -11,10 +11,13 @@ function ProfileInfo(props) {
   return (
     <div className="profile-content">
       <div className="img"></div>
-      
+
       <img src={props.profile.photos.small} alt="Фотография пользователя" />
       <div>
-        <ProfileStatus status={"Все огонь!"} />
+        <ProfileStatus
+          status={props.status}
+          updateStatus={props.updateStatus}
+        />
       </div>
       <div>
         ${props.profile.aboutMe}
