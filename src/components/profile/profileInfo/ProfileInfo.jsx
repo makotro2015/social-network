@@ -1,7 +1,7 @@
-import React from "react";
-import "./ProfileInfo.scss";
-import Preloader from "./../../common/preloader/Preloader";
-import ProfileStatus from "./ProfileStatus";
+import React from 'react';
+import './ProfileInfo.scss';
+import Preloader from './../../common/preloader/Preloader';
+import ProfileStatus from './ProfileStatus';
 
 function ProfileInfo(props) {
   if (!props.profile) {

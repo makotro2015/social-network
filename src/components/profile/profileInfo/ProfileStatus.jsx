@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class ProfileStatus extends React.Component {
   state = {
@@ -45,7 +45,7 @@ class ProfileStatus extends React.Component {
           />
         ) : (
           <div onDoubleClick={this.activateEditMode}>
-            {this.props.status || "Статус не добавлен"}
+            {this.props.status || 'Статус не добавлен'}
           </div>
         )}
       </>

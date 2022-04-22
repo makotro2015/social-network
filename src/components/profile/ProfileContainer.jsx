@@ -1,14 +1,14 @@
-import React from "react";
-import Profile from "./Profile";
-import { connect } from "react-redux";
+import React from 'react';
+import Profile from './Profile';
+import { connect } from 'react-redux';
 import {
   setCurrentUserId,
   getUserProfileThunkCreator,
   getStatus,
   updateStatus,
-} from "./../../redux/profile-reducer.js";
-import { withUseParamsComponent } from "../../hoc/withUseParams";
-import { compose } from "redux";
+} from './../../redux/profile-reducer.js';
+import { withUseParamsComponent } from '../../hoc/withUseParams';
+import { compose } from 'redux';
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
@@ -43,5 +43,5 @@ export default compose(
     getStatus,
     updateStatus,
   }),
-  withUseParamsComponent
+  withUseParamsComponent,
 )(ProfileContainer);

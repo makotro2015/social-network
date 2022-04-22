@@ -1,6 +1,6 @@
-import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
-import s from "./DialogItem.module.scss";
+import React from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+import s from './DialogItem.module.scss';
 
 function DialogItem(props) {
   return (

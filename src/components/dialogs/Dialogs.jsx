@@ -1,9 +1,16 @@
-import React from "react";
-import s from "./Dialogs.module.scss";
-import DialogItem from "./dialog/DialogItem";
-import Message from "./message/Message";
-import { Field } from "redux-form";
-import { reduxForm } from "redux-form";
+import React from 'react';
+import s from './Dialogs.module.scss';
+import DialogItem from './dialog/DialogItem';
+import Message from './message/Message';
+import { Field } from 'redux-form';
+import { reduxForm } from 'redux-form';
+import { Textarea } from '../common/formsControls/FormsControls';
+import {
+  required,
+  maxLengthCreator,
+} from './../../assets/validation/validation';
+
+const maxLength10 = maxLengthCreator(10);
 
 const AddMessageForm = (props) => {
   return (
@@ -12,7 +19,8 @@ const AddMessageForm = (props) => {
         <Field
           placeholder="add message"
           name="newMessageBody"
-          component="textarea"
+          component={Textarea}
+          validate={[required, maxLength10]}
         />
       </div>
       <div>
@@ -23,14 +31,14 @@ const AddMessageForm = (props) => {
 };
 
 const AddMessageReduxForm = reduxForm({
-  form: "dialogAddMessageForm",
+  form: 'dialogAddMessageForm',
 })(AddMessageForm);
 
 function Dialogs(props) {
-  let dialogsElements = props.dialogs.map((d, i) => (
+  const dialogsElements = props.dialogs.map((d, i) => (
     <DialogItem key={i} name={d.name} id={d.id} />
   ));
-  let messagesElements = props.messages.map((m, i) => (
+  const messagesElements = props.messages.map((m, i) => (
     <Message key={i} message={m.message} />
   ));
 

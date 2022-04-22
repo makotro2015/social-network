@@ -1,22 +1,22 @@
-import React from "react";
+import React from 'react';
 import {
   follow,
   unfollow,
   setCurrentPage,
   setIsFollowingProgress,
   getUsersThunkCreator,
-} from "./../../redux/users-reducer.js";
-import Users from "./Users";
-import { connect } from "react-redux";
-import Preloader from "./../common/preloader/Preloader";
-import { compose } from "redux";
-import { withAuthNavigateComponent } from "../../hoc/withAuthNavigate.js";
+} from './../../redux/users-reducer.js';
+import Users from './Users';
+import { connect } from 'react-redux';
+import Preloader from './../common/preloader/Preloader';
+import { compose } from 'redux';
+import { withAuthNavigateComponent } from '../../hoc/withAuthNavigate.js';
 
 class UsersAPI extends React.Component {
   componentDidMount() {
     this.props.getUsersThunkCreator(
       this.props.pageSize,
-      this.props.currentPage
+      this.props.currentPage,
     );
   }
 
@@ -26,8 +26,8 @@ class UsersAPI extends React.Component {
   };
 
   render() {
-    let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
-    let pages = [];
+    const pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+    const pages = [];
     for (let i = 1; i <= pageCount; i++) {
       pages.push(i);
     }
@@ -72,5 +72,5 @@ export default compose(
     setIsFollowingProgress,
     getUsersThunkCreator,
   }),
-  withAuthNavigateComponent
+  withAuthNavigateComponent,
 )(UsersAPI);

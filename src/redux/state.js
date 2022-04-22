@@ -1,35 +1,35 @@
-import dialogsReducer from "./dialogs.reducer";
-import profileReducer from "./profile.reducer";
+import dialogsReducer from './dialogs.reducer';
+import profileReducer from './profile.reducer';
 
-let store = {
+const store = {
   _state: {
     profilePage: {
       posts: [
-        { id: 1, message: "hello", likeCount: 12 },
-        { id: 2, message: "Alena", likeCount: 10 },
-        { id: 3, message: "name", likeCount: 2 },
-        { id: 4, message: "family", likeCount: 1 },
+        { id: 1, message: 'hello', likeCount: 12 },
+        { id: 2, message: 'Alena', likeCount: 10 },
+        { id: 3, message: 'name', likeCount: 2 },
+        { id: 4, message: 'family', likeCount: 1 },
       ],
-      newPostText: "",
+      newPostText: '',
     },
     dialogsPage: {
       dialogs: [
-        { id: 1, name: "Alena" },
-        { id: 2, name: "Lena" },
-        { id: 3, name: "Elena" },
-        { id: 4, name: "Alex" },
-        { id: 5, name: "Olya" },
-        { id: 6, name: "Sasha" },
+        { id: 1, name: 'Alena' },
+        { id: 2, name: 'Lena' },
+        { id: 3, name: 'Elena' },
+        { id: 4, name: 'Alex' },
+        { id: 5, name: 'Olya' },
+        { id: 6, name: 'Sasha' },
       ],
       messages: [
-        { id: 1, message: "Hi" },
-        { id: 2, message: "Ho" },
-        { id: 3, message: "He" },
-        { id: 4, message: "Hi-hi" },
-        { id: 5, message: "Hi-ha" },
-        { id: 6, message: "Hi-he" },
+        { id: 1, message: 'Hi' },
+        { id: 2, message: 'Ho' },
+        { id: 3, message: 'He' },
+        { id: 4, message: 'Hi-hi' },
+        { id: 5, message: 'Hi-ha' },
+        { id: 6, message: 'Hi-he' },
       ],
-      newMessageBody: "",
+      newMessageBody: '',
     },
     sidebar: {},
   },
