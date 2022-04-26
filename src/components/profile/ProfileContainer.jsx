@@ -34,6 +34,8 @@ const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
   isFetching: state.profilePage.isFetching,
+  authorizedUserId: state.auth.id,
+  isAuth: state.auth.isAuth,
 });
 
 export default compose(

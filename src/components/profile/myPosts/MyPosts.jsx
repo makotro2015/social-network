@@ -6,7 +6,7 @@ import {
   required,
   maxLengthCreator,
 } from './../../../assets/validation/validation';
-import { Textarea } from '../../common/formsControls/FormsControls';
+import { Element } from '../../common/formsControls/FormsControls';
 
 const maxLength5 = maxLengthCreator(5);
 
@@ -17,7 +17,8 @@ const AddPostForm = (props) => {
         <Field
           placeholder="add post"
           name="newPostBody"
-          component={Textarea}
+          component={Element}
+          elementtype="textarea"
           validate={[required, maxLength5]}
         />
       </div>
