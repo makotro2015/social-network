@@ -8,6 +8,7 @@ import {
   updateStatus,
 } from './../../redux/profile-reducer.js';
 import { withUseParamsComponent } from '../../hoc/withUseParams';
+import { withAuthNavigateComponent } from '../../hoc/withAuthNavigate';
 import { compose } from 'redux';
 
 class ProfileContainer extends React.Component {
@@ -46,4 +47,5 @@ export default compose(
     updateStatus,
   }),
   withUseParamsComponent,
+  withAuthNavigateComponent,
 )(ProfileContainer);

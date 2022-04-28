@@ -14,7 +14,7 @@ const initialState = {
     { id: 4, message: 'family', likeCount: 1 },
   ],
   profile: '',
-  currentUserId: 2,
+  currentUserId: null,
   isFetching: false,
   status: '',
 };

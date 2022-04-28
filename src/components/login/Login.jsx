@@ -51,7 +51,7 @@ const Login = (props) => {
   };
 
   if (props.isAuth) {
-    return <Navigate to="/profile/2" />;
+    return <Navigate to={'/profile/' + props.authorizedUserId} />;
   }
   return (
     <div>
@@ -63,6 +63,7 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
+  authorizedUserId: state.auth.id,
 });
 
 export default connect(mapStateToProps, { login })(Login);
