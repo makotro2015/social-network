@@ -13,9 +13,9 @@ import './../common/formsControls/FormsControls.scss';
 
 const maxLength30 = maxLengthCreator(30);
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <Field
         placeholder="Login"
         name="login"
@@ -35,7 +35,7 @@ const LoginForm = (props) => {
       <br />
       <Field type="checkbox" name="rememberMe" component="input" /> remember me
       <br />
-      {props.error && <div className="text-error"> {props.error} </div>}
+      {error && <div className="text-error"> {error} </div>}
       <button>Login</button>
     </form>
   );
