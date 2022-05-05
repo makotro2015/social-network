@@ -5,19 +5,23 @@ import User from './User';
 function Users(props) {
   return (
     <div>
-      <Paginator currentPage={props.currentPage} 
-        onPageChanged={props.onPageChanged} 
-        totalUsersCount={props.totalUsersCount} 
+      <Paginator
+        currentPage={props.currentPage}
+        onPageChanged={props.onPageChanged}
+        totalItemsCount={props.totalUsersCount}
         pageSize={props.pageSize}
-        changeCurrentPage={props.changeCurrentPage} />
+        changeCurrentPage={props.changeCurrentPage}
+      />
 
-      {
-        props.users.map((u) => <User key={u.id} user={u} 
+      {props.users.map((u) => (
+        <User
+          key={u.id}
+          user={u}
           followingInProgress={props.followingInProgress}
-          unfollow={props.unfollow} 
+          unfollow={props.unfollow}
           follow={props.follow}
-        /> )
-      }
+        />
+      ))}
     </div>
   );
 }
