@@ -25,7 +25,7 @@ function ProfileInfo({profile, ...props}) {
       />
       {props.isOwner && <input type={'file'} onChange={onMainPhotoSelected} />}
       <div>
-        looking for a job: {profile.lookingForAJob ? "yes" : "no"}
+        looking for a job: {profile.lookingForAJob ? 'yes' : 'no'}
       </div>
       {profile.lookingForAJob &&
         <div>Мои навыки: {profile.lookingForAJobDescription}</div>
