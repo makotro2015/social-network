@@ -13,11 +13,14 @@ const mapStateToPropsForParams = (state) => {
 export const withUseParamsComponent = (Component) => {
   const UseParamsComponent = (props) => {
     let currentUserId = useParams().userId;
+    const isOwner = !currentUserId;
     if (!currentUserId) {
       currentUserId = props.authorizedUserId;
     }
     props.setCurrentUserId(currentUserId);
-    return <Component {...props} currentUserId={currentUserId} />;
+    return (
+      <Component {...props} currentUserId={currentUserId} isOwner={isOwner} />
+    );
   };
   return connect(mapStateToPropsForParams, {
     setCurrentUserId,

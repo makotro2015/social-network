@@ -2,17 +2,34 @@ import React from 'react';
 import './ProfileInfo.scss';
 import Preloader from './../../common/preloader/Preloader';
 import ProfileStatus from './ProfileStatus';
+import userPhoto from '../../../assets/images/user.png';
 
-function ProfileInfo(props) {
-  if (!props.profile) {
+function ProfileInfo({profile, ...props}) {
+  if (!profile) {
     return <Preloader />;
   }
+
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      props.savePhoto(e.target.files[0]);
+    }
+  };
 
   return (
     <div className="profile-content">
       <div className="img"></div>
 
-      <img src={props.profile.photos.small} alt="Фотография пользователя" />
+      <img
+        src={profile.photos.large || userPhoto}
+        alt="Фотография пользователя"
+      />
+      {props.isOwner && <input type={'file'} onChange={onMainPhotoSelected} />}
+      <div>
+        looking for a job: {profile.lookingForAJob ? "yes" : "no"}
+      </div>
+      {profile.lookingForAJob &&
+        <div>Мои навыки: {profile.lookingForAJobDescription}</div>
+      }
       <div>
         <ProfileStatus
           status={props.status}
@@ -20,8 +37,8 @@ function ProfileInfo(props) {
         />
       </div>
       <div>
-        ${props.profile.aboutMe}
-        <br />${props.profile.fullName}
+        ${profile.aboutMe}
+        <br />${profile.fullName}
       </div>
     </div>
   );

@@ -1,13 +1,13 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import DialogsContainer from './components/dialogs/DialogsContainer';
-import ProfileContainer from './components/profile/ProfileContainer.jsx';
-import Layout from './Layout.jsx';
-import UsersContainer from './components/users/UsersContainer';
-import Login from './components/login/Login';
-import Preloader from './components/common/preloader/Preloader';
-import { initializedApp } from './redux/app-reducer.js';
-import { connect } from 'react-redux';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import DialogsContainer from "./components/dialogs/DialogsContainer";
+import ProfileContainer from "./components/profile/ProfileContainer.jsx";
+import Layout from "./Layout.jsx";
+import UsersContainer from "./components/users/UsersContainer";
+import Login from "./components/login/Login";
+import Preloader from "./components/common/preloader/Preloader";
+import { initializedApp } from "./redux/app-reducer.js";
+import { connect } from "react-redux";
 
 class App extends React.Component {
   componentDidMount() {

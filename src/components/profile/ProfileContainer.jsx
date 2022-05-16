@@ -6,15 +6,26 @@ import {
   getUserProfileThunkCreator,
   getStatus,
   updateStatus,
+  savePhoto,
 } from './../../redux/profile-reducer.js';
 import { withUseParamsComponent } from '../../hoc/withUseParams';
 import { withAuthNavigateComponent } from '../../hoc/withAuthNavigate';
 import { compose } from 'redux';
 
 class ProfileContainer extends React.Component {
-  componentDidMount() {
+  refreshProfile() {
     this.props.getUserProfileThunkCreator(this.props.currentUserId);
     this.props.getStatus(this.props.currentUserId);
+  }
+
+  componentDidMount() {
+    this.refreshProfile();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.currentUserId !== prevProps.currentUserId) {
+      this.refreshProfile();
+    }
   }
 
   render() {
@@ -22,9 +33,11 @@ class ProfileContainer extends React.Component {
       <>
         <Profile
           {...this.props}
+          isOwner={this.props.isOwner}
           profile={this.props.profile}
           status={this.props.status}
           updateStatus={this.props.updateStatus}
+          savePhoto={this.props.savePhoto}
         />
       </>
     );
@@ -45,6 +58,7 @@ export default compose(
     getUserProfileThunkCreator,
     getStatus,
     updateStatus,
+    savePhoto,
   }),
   withUseParamsComponent,
   withAuthNavigateComponent,

@@ -1,9 +1,11 @@
-import React from 'react';
-import preloader from './../../../assets/images/loading.svg';
+import React from "react";
+import "./Preloader.scss";
 
-function Preloader (props) {
+function Preloader(props) {
   return (
-    <img src={preloader}  alt="Идет получение данных"/>
+    <div className="preloader">
+      <span></span>
+    </div>
   );
 }
 
