@@ -1,4 +1,27 @@
 .header {
     grid-area: header;
-    background-color: rgb(88, 88, 88);
-  }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5% 0 1%;
+    background-color: #f7f6f7;
+
+    .logo {
+      height: 80%;
+      display: flex;
+      align-items: center;
+      gap: 10%;
+
+      img {
+        height: inherit;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      border: 1px solid grey;
+      border-radius: 5%;
+      padding: 5px 30px;
+      outline: grey;
+    }
+}

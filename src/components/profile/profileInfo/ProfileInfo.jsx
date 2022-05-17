@@ -17,8 +17,6 @@ function ProfileInfo({profile, ...props}) {
 
   return (
     <div className="profile-content">
-      <div className="img"></div>
-
       <img
         src={profile.photos.large || userPhoto}
         alt="Фотография пользователя"

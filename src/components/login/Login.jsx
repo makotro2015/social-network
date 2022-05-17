@@ -59,6 +59,10 @@ const Login = (props) => {
     <div className="login" style={{ backgroundImage: `url(${background})` }}>
       <h1>Login page</h1>
       <LoginReduxForm onSubmit={onSubmit} />
+      <p>
+        *Для входа в социальную сеть введите логин: makotro2015@gmail.com,
+        пароль: flvbybcnhfwbz
+      </p>
     </div>
   );
 };
