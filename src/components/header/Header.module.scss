@@ -3,8 +3,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 5% 0 1%;
-    background-color: #f7f6f7;
+    background-color: #d6b2a5;
+    padding: 0 1rem;
 
     .logo {
       height: 80%;
@@ -19,9 +19,9 @@
 
     a {
       text-decoration: none;
-      border: 1px solid grey;
+      border: 2px solid grey;
       border-radius: 5%;
       padding: 5px 30px;
-      outline: grey;
+      border-style: outset;
     }
 }

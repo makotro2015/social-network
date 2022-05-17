@@ -12,6 +12,7 @@ import { Navigate } from 'react-router-dom';
 import './../common/formsControls/FormsControls.scss';
 import './Login.scss';
 import background from '../../assets/images/backgroundLogin.jpg';
+import Button from '../common/buttons/Button';
 
 const maxLength30 = maxLengthCreator(30);
 
@@ -38,7 +39,7 @@ const LoginForm = ({ handleSubmit, error }) => {
       <Field type="checkbox" name="rememberMe" component="input" /> remember me
       <br />
       {error && <div className="text-error"> {error} </div>}
-      <button>Login</button>
+      <Button name="Войти" />
     </form>
   );
 };
