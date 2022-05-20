@@ -19,8 +19,9 @@ const maxLength30 = maxLengthCreator(30);
 const LoginForm = ({ handleSubmit, error }) => {
   return (
     <form onSubmit={handleSubmit}>
+      <legend>Войдите в Social Network</legend>
       <Field
-        placeholder="Login"
+        placeholder="Логин"
         name="login"
         component={Element}
         elementtype="input"
@@ -28,18 +29,20 @@ const LoginForm = ({ handleSubmit, error }) => {
       />
       <br />
       <Field
-        placeholder="Password"
+        placeholder="Пароль"
         name="password"
         type="password"
         component={Element}
         elementtype="input"
         validate={[required, maxLength30]}
       />
-      <br />
-      <Field type="checkbox" name="rememberMe" component="input" /> remember me
-      <br />
-      {error && <div className="text-error"> {error} </div>}
-      <Button name="Войти" />
+      <div className="btn-wrapper">
+        {error && <div className="text-error"> {error} </div>}
+        <Button name="Войти" />
+        <label>
+          <Field type="checkbox" name="rememberMe" component="input" /> Запомнить меня
+        </label>
+      </div>
     </form>
   );
 };
@@ -58,9 +61,8 @@ const Login = (props) => {
   }
   return (
     <div className="login" style={{ backgroundImage: `url(${background})` }}>
-      <h1>Login page</h1>
       <LoginReduxForm onSubmit={onSubmit} />
-      <p>
+      <p className="hint">
         *Для входа в социальную сеть введите логин: makotro2015@gmail.com,
         пароль: flvbybcnhfwbz
       </p>

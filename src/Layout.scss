@@ -11,9 +11,10 @@
   height: 100%;
 
   .content-wrapper {
+    position: relative;
     grid-area: content;
     background-color: #ffffffb3;
-    padding: 1rem;
-}
+    padding: 1.6rem;
+  }
 
 }
