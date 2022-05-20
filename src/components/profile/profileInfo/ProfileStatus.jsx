@@ -40,7 +40,7 @@ const ProfileStatus = (props) => {
         />
       ) : (
         <div onDoubleClick={activateEditMode}>
-          {props.status || 'Статус не добавлен'}
+         Статус: {props.status || 'Статус не добавлен'}
         </div>
       )}
     </>

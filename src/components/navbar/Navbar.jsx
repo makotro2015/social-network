@@ -6,10 +6,10 @@ function Navbar() {
   return (
     <nav className="nav">
       <div className="item">
-        <NavLink to="profile">Профиль</NavLink>
+        <NavLink to="profile">Моя страница</NavLink>
       </div>
       <div className="item">
-        <NavLink to="dialogs">Диалоги</NavLink>
+        <NavLink to="dialogs">Сообщения</NavLink>
       </div>
       <div className="item">
         <NavLink to="users">Пользователи</NavLink>
