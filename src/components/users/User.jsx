@@ -2,7 +2,29 @@ import React from 'react';
 import userPhoto from './../../assets/images/user.png';
 import { NavLink } from 'react-router-dom';
 
-function Users({user, ...props}) {
+function Users({user, isAuth, ...props}) {
+  const renderBtnFollow = (followed) => {
+    return followed ? (
+      <button
+        disabled={props.followingInProgress.some((id) => id === user.id)}
+        onClick={() => {
+          props.unfollow(user.id);
+        }}
+      >
+          Unfollow
+      </button>
+    ) : (
+      <button
+        disabled={props.followingInProgress.some((id) => id === user.id)}
+        onClick={() => {
+          props.follow(user.id);
+        }}
+      >
+          Follow
+      </button>
+    );
+  };
+    
   return (
     <div>
       <div>
@@ -12,27 +34,9 @@ function Users({user, ...props}) {
             alt="Фотография пользователя"
           />
         </NavLink>
-        {user.followed ? (
-          <button
-            disabled={props.followingInProgress.some((id) => id === user.id)}
-            onClick={() => {
-              props.unfollow(user.id);
-            }}
-          >
-                Unfollow
-          </button>
-        ) : (
-          <button
-            disabled={props.followingInProgress.some((id) => id === user.id)}
-            onClick={() => {
-              props.follow(user.id);
-            }}
-          >
-                Follow
-          </button>
-        )}
       </div>
-      <div>{user.name} u.location.city и u.location.country</div>
+      { isAuth && renderBtnFollow(user.followed) }
+      <div>{user.name} {user.status || 'Статус не добавлен'} </div>
     </div>
   );
 }

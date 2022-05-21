@@ -13,6 +13,7 @@ import {
   getCurrentPage,
   getIsFetching,
   getFollowingInProgress,
+  getIsAuth,
 } from './../../redux/selectors.js';
 import Users from './Users';
 import { connect } from 'react-redux';
@@ -54,6 +55,7 @@ class UsersAPI extends React.Component {
             follow={this.props.follow}
             unfollow={this.props.unfollow}
             followingInProgress={this.props.followingInProgress}
+            isAuth={this.props.isAuth}
           />
         )}
       </>
@@ -69,6 +71,7 @@ const mapStateToProps = (state) => {
     currentPage: getCurrentPage(state),
     isFetching: getIsFetching(state),
     followingInProgress: getFollowingInProgress(state),
+    isAuth: getIsAuth(state),
   };
 };
 

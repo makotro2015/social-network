@@ -20,6 +20,7 @@ function Users(props) {
           followingInProgress={props.followingInProgress}
           unfollow={props.unfollow}
           follow={props.follow}
+          isAuth={props.isAuth}
         />
       ))}
     </div>
