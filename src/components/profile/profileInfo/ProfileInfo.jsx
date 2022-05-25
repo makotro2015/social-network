@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './ProfileInfo.scss';
-import Preloader from './../../common/preloader/Preloader';
+import Preloader from '../../common/preloader/Preloader';
 import ProfileStatus from './ProfileStatus';
 import userPhoto from '../../../assets/images/user.png';
 
-function ProfileInfo({profile, ...props}) {
+const ProfileInfo = ({profile, ...props}) => {
+
+  const [editMode, setEditMode] = useState(false);
+
   if (!profile) {
     return <Preloader />;
   }
@@ -17,36 +20,58 @@ function ProfileInfo({profile, ...props}) {
 
   return (
     <div className="profile-content">
-      <img
-        src={profile.photos.large || userPhoto}
-        alt="Фотография пользователя"
-      />
-      {props.isOwner && <input type={'file'} onChange={onMainPhotoSelected} />}
-      <ProfileData profile={profile}/>
-      <div>
+      <div className="top">
+        <div className="user-photo">
+          <img
+            src={profile.photos.large || userPhoto}
+            alt="Фотография пользователя"
+          />
+          {props.isOwner && <input type={'file'} onChange={onMainPhotoSelected} />}
+        </div>
         <ProfileStatus
           status={props.status}
           updateStatus={props.updateStatus}
         />
       </div>
+      { editMode ? <ProfileDataForm profile={profile}/> : <ProfileData profile={profile}/> }
+      <div>
+      </div>
     </div>
   );
-}
+};
 
 const Contact = ({contactTitle, contactValue}) => {
-  return <div>{contactTitle}: {contactValue}</div>;
+  return <div className="contacts">{contactTitle}: {contactValue}</div>;
 };
 
 const ProfileData = ({profile}) => {
-  return <div>
-    <div>Полное имя: {profile.fullName}</div>
+  return <div className="profile-data">
+    <div><b>Полное имя:</b> {profile.fullName}</div>
     <div>
-        В поиске работы: {profile.lookingForAJob ? 'нет' : 'да'}
+      <b>В поиске работы:</b> {profile.lookingForAJob ? 'нет' : 'да'}
     </div>
     {profile.lookingForAJob &&
-        <div>Мои навыки: {profile.lookingForAJobDescription}</div>        
+      <div><b>Мои навыки:</b> {profile.lookingForAJobDescription}</div>        
     }
-    <div>Контакты: {Object.keys(profile.contacts).map(key => {
+    <div><b>Контакты:</b> {Object.keys(profile.contacts).map(key => {
+      return <Contact 
+        key={key}
+        contactTitle={key}
+        contactValue={profile.contacts[key]}
+      />;
+    })}</div>
+  </div>;
+};
+const ProfileDataForm = ({profile}) => {
+  return <div className="profile-data">
+    <div><b>Полное имя:</b> {profile.fullName}</div>
+    <div>
+      <b>В поиске работы:</b> {profile.lookingForAJob ? 'нет' : 'да'}
+    </div>
+    {profile.lookingForAJob &&
+      <div><b>Мои навыки:</b> {profile.lookingForAJobDescription}</div>        
+    }
+    <div><b>Контакты:</b> {Object.keys(profile.contacts).map(key => {
       return <Contact 
         key={key}
         contactTitle={key}

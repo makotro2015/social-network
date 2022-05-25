@@ -1,10 +1,10 @@
 import React from 'react';
+import { Field } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import s from './Dialogs.module.scss';
 import DialogItem from './dialog/DialogItem';
 import Message from './message/Message';
-import { Field } from 'redux-form';
-import { reduxForm } from 'redux-form';
-import { Element } from '../common/formsControls/FormsControls';
+import Element from '../common/formsControls/FormsControls';
 import {
   required,
   maxLengthCreator,

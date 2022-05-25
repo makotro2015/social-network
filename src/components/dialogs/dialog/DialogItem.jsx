@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import s from './DialogItem.module.scss';
 
-function DialogItem(props) {
+const DialogItem = (props) => {
   return (
     <>
       <div className={s.dialog}>
@@ -11,6 +11,6 @@ function DialogItem(props) {
       <Outlet />
     </>
   );
-}
+};
 
 export default DialogItem;

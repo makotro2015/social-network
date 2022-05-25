@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Paginator.scss';
 
-function Paginator({ portionSize = 10, ...props }) {
+const Paginator = ({ portionSize = 10, ...props }) => {
   const pagesCount = Math.ceil(props.totalItemsCount / props.pageSize);
   const pages = [];
   for (let i = 1; i <= pagesCount; i++) {
@@ -50,6 +50,6 @@ function Paginator({ portionSize = 10, ...props }) {
       )}
     </div>
   );
-}
+};
 
 export default Paginator;

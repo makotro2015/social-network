@@ -1,7 +1,7 @@
 import React from 'react';
 import './FormsControls.scss';
 
-export const Element = ({ input, meta: { touched, error }, ...props }) => {
+const Element = ({ input, meta: { touched, error }, ...props }) => {
   const hasError = touched && error;
   return (
     <div className={`form-control ${hasError ? 'error' : ''}`}>
@@ -14,3 +14,5 @@ export const Element = ({ input, meta: { touched, error }, ...props }) => {
     </div>
   );
 };
+
+export default Element;

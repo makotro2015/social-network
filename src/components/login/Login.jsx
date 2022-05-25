@@ -1,15 +1,15 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Field } from 'redux-form';
 import { reduxForm } from 'redux-form';
-import { Element } from '../common/formsControls/FormsControls';
+import Element from '../common/formsControls/FormsControls';
 import {
   required,
   maxLengthCreator,
-} from './../../assets/validation/validation';
-import { login } from './../../redux/auth-reducer';
-import { Navigate } from 'react-router-dom';
-import './../common/formsControls/FormsControls.scss';
+} from '../../assets/validation/validation';
+import { login } from '../../redux/auth-reducer';
+import '../common/formsControls/FormsControls.scss';
 import './Login.scss';
 import background from '../../assets/images/backgroundLogin.jpg';
 import Button from '../common/buttons/Button';

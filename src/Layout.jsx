@@ -10,7 +10,7 @@ function Layout(props) {
       <HeaderContainer />
       <Navbar />
       <div className="content-wrapper">
-        <Outlet />
+        <Outlet /> 
       </div>
     </div>
   );

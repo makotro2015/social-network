@@ -3,7 +3,7 @@ import s from './Profile.module.scss';
 import MyPostsContainer from './myPosts/MyPostsContainer';
 import ProfileInfo from './profileInfo/ProfileInfo';
 
-function Profile(props) {
+const Profile = (props) => {
   return (
     <div className={s.content}>
       <ProfileInfo
@@ -16,6 +16,6 @@ function Profile(props) {
       <MyPostsContainer />
     </div>
   );
-}
+};
 
 export default Profile;

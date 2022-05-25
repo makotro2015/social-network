@@ -10,10 +10,30 @@ const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
 
 const initialState = {
   posts: [
-    { id: 1, message: 'hello', likeCount: 12 },
-    { id: 2, message: 'Alena', likeCount: 10 },
-    { id: 3, message: 'name', likeCount: 2 },
-    { id: 4, message: 'family', likeCount: 1 },
+    { id: 1, message: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+     nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+     deserunt mollit anim id est laborum.`, likeCount: 5 },
+    { id: 2, message: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+     nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+     deserunt mollit anim id est laborum.`, likeCount: 10 },
+    { id: 3, message: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+     nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+     deserunt mollit anim id est laborum.`, likeCount: 2 },
+    { id: 4, message: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+     nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+     deserunt mollit anim id est laborum.`, likeCount: 20 },
   ],
   profile: '',
   currentUserId: null,

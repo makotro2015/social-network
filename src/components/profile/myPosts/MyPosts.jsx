@@ -1,12 +1,12 @@
 import React from 'react';
+import { Field, reduxForm } from 'redux-form';
 import s from './MyPosts.module.scss';
 import Post from './post/Post';
-import { Field, reduxForm } from 'redux-form';
 import {
   required,
   maxLengthCreator,
-} from './../../../assets/validation/validation';
-import { Element } from '../../common/formsControls/FormsControls';
+} from '../../../assets/validation/validation';
+import Element from '../../common/formsControls/FormsControls';
 
 const maxLength5 = maxLengthCreator(5);
 
@@ -15,7 +15,7 @@ const AddPostForm = (props) => {
     <form onSubmit={props.handleSubmit}>
       <div>
         <Field
-          placeholder="add post"
+          placeholder="Напишите текст поста..."
           name="newPostBody"
           component={Element}
           elementtype="textarea"
@@ -44,7 +44,7 @@ function MyPosts(props) {
 
   return (
     <div className={s.postsBlock}>
-      <h3>my posts</h3>
+      <h3>Добавить пост:</h3>
       <AddPostReduxForm onSubmit={addNewPost} />
       <div className={s.posts}>{postsElements}</div>
     </div>

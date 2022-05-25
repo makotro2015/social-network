@@ -1,16 +1,16 @@
 import React from 'react';
-import Profile from './Profile';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import Profile from './Profile';
 import {
   setCurrentUserId,
   getUserProfileThunkCreator,
   getStatus,
   updateStatus,
   savePhoto,
-} from './../../redux/profile-reducer.js';
-import { withUseParamsComponent } from '../../hoc/withUseParams';
-import { withAuthNavigateComponent } from '../../hoc/withAuthNavigate';
-import { compose } from 'redux';
+} from '../../redux/profile-reducer.js';
+import withUseParamsComponent from '../../hoc/withUseParams';
+import withAuthNavigateComponent from '../../hoc/withAuthNavigate';
 
 class ProfileContainer extends React.Component {
   refreshProfile() {

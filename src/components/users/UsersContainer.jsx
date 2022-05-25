@@ -1,11 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 import {
   follow,
   unfollow,
   setCurrentPage,
   setIsFollowingProgress,
   getUsersThunkCreator,
-} from './../../redux/users-reducer.js';
+} from '../../redux/users-reducer.js';
 import {
   getUsers,
   getPageSize,
@@ -14,11 +16,10 @@ import {
   getIsFetching,
   getFollowingInProgress,
   getIsAuth,
-} from './../../redux/selectors.js';
+} from '../../redux/selectors.js';
 import Users from './Users';
-import { connect } from 'react-redux';
-import Preloader from './../common/preloader/Preloader';
-import { compose } from 'redux';
+import Preloader from '../common/preloader/Preloader';
+
 class UsersAPI extends React.Component {
   componentDidMount() {
     this.props.getUsersThunkCreator(

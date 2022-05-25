@@ -1,4 +1,4 @@
-export const updateObjectInArray = (
+const updateObjectInArray = (
   items,
   itemId,
   objPropName,
@@ -11,3 +11,5 @@ export const updateObjectInArray = (
     return u;
   });
 };
+
+export {updateObjectInArray};

@@ -24,12 +24,15 @@ const ProfileStatus = (props) => {
   return (
     <>
       {editMode ? (
-        <input
-          onBlur={deactivateEditMode}
-          onChange={onStatusChange}
-          value={status}
-          autoFocus
-        />
+        <>
+          <label>Статус:</label>
+          <input
+            onBlur={deactivateEditMode}
+            onChange={onStatusChange}
+            value={status}
+            autoFocus
+          />
+        </>
       ) : (
         <div onDoubleClick={activateEditMode}>
          Статус: {props.status || 'Статус не добавлен'}
@@ -40,60 +43,3 @@ const ProfileStatus = (props) => {
 };
 
 export default ProfileStatus;
-
-// import React from 'react';
-
-// class ProfileStatus extends React.Component {
-//   state = {
-//     editMode: false,
-//     status: this.props.status,
-//   };
-
-//   activateEditMode = () => {
-//     this.setState({
-//       editMode: true,
-//     });
-//   };
-
-//   deactivateEditMode = () => {
-//     this.setState({
-//       editMode: false,
-//     });
-//     this.props.updateStatus(this.state.status);
-//   };
-
-//   onStatusChange = (e) => {
-//     this.setState({
-//       status: e.currentTarget.value,
-//     });
-//   };
-
-//   componentDidUpdate(prevProps, prevState) {
-//     if (prevProps.status !== this.props.status) {
-//       this.setState({
-//         status: this.props.status,
-//       });
-//     }
-//   }
-
-//   render() {
-//     return (
-//       <>
-//         {this.state.editMode ? (
-//           <input
-//             onBlur={this.deactivateEditMode}
-//             onChange={this.onStatusChange}
-//             value={this.state.status}
-//             autoFocus
-//           />
-//         ) : (
-//           <div onDoubleClick={this.activateEditMode}>
-//             {this.props.status || 'Статус не добавлен'}
-//           </div>
-//         )}
-//       </>
-//     );
-//   }
-// }
-
-// export default ProfileStatus;

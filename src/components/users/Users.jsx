@@ -1,8 +1,8 @@
 import React from 'react';
-import Paginator from './../common/Paginator/Paginator';
+import Paginator from '../common/Paginator/Paginator';
 import User from './User';
 
-function Users(props) {
+const Users = (props) => {
   return (
     <div>
       <Paginator
@@ -25,6 +25,6 @@ function Users(props) {
       ))}
     </div>
   );
-}
+};
 
 export default Users;

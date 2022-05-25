@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { setCurrentUserId } from './../redux/profile-reducer.js';
+import { setCurrentUserId } from '../redux/profile-reducer.js';
 
 const mapStateToPropsForParams = (state) => {
   return {
@@ -10,7 +10,7 @@ const mapStateToPropsForParams = (state) => {
   };
 };
 
-export const withUseParamsComponent = (Component) => {
+const withUseParamsComponent = (Component) => {
   const UseParamsComponent = (props) => {
     let currentUserId = useParams().userId;
     const isOwner = !currentUserId;
@@ -26,3 +26,5 @@ export const withUseParamsComponent = (Component) => {
     setCurrentUserId,
   })(UseParamsComponent);
 };
+
+export default withUseParamsComponent;

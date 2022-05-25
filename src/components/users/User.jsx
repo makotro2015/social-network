@@ -1,8 +1,8 @@
 import React from 'react';
-import userPhoto from './../../assets/images/user.png';
 import { NavLink } from 'react-router-dom';
+import userPhoto from '../../assets/images/user.png';
 
-function Users({user, isAuth, ...props}) {
+const Users = ({user, isAuth, ...props}) => {
   const renderBtnFollow = (followed) => {
     return followed ? (
       <button
@@ -39,6 +39,6 @@ function Users({user, isAuth, ...props}) {
       <div>{user.name} {user.status || 'Статус не добавлен'} </div>
     </div>
   );
-}
+};
 
 export default Users;

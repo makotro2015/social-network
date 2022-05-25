@@ -8,7 +8,7 @@ const mapStateToPropsForNavigate = (state) => {
   };
 };
 
-export const withAuthNavigateComponent = (Component) => {
+const withAuthNavigateComponent = (Component) => {
   class NavigateComponent extends React.Component {
     render() {
       if (!this.props.isAuth) {
@@ -20,3 +20,5 @@ export const withAuthNavigateComponent = (Component) => {
 
   return connect(mapStateToPropsForNavigate)(NavigateComponent);
 };
+
+export default withAuthNavigateComponent;

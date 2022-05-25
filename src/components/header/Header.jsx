@@ -1,10 +1,10 @@
 import React from 'react';
-import s from './Header.module.scss';
 import { NavLink } from 'react-router-dom';
+import s from './Header.module.scss';
 import logo from '../../assets/images/logo.jpg';
 import Button from '../common/buttons/Button';
 
-function Header(props) {
+const Header = (props) => {
   return (
     <header className={s.header}>
       <div className={s.logo}>
@@ -20,6 +20,6 @@ function Header(props) {
       )}
     </header>
   );
-}
+};
 
 export default Header;

@@ -1,8 +1,8 @@
-import { sendMessage } from './../../redux/dialogs-reducer.js';
-import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
-import { withAuthNavigateComponent } from '../../hoc/withAuthNavigate.js';
 import { compose } from 'redux';
+import { sendMessage } from '../../redux/dialogs-reducer.js';
+import Dialogs from './Dialogs';
+import withAuthNavigateComponent from '../../hoc/withAuthNavigate.js';
 
 const mapStateToProps = (state) => {
   return {
